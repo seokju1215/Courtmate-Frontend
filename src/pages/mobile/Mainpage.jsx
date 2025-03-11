@@ -5,6 +5,7 @@ import MobileDateSlider from "../../components/mobile/MobileDateSlider";
 import MatchList from "../../components/common/MatchList";
 
 const MainPage = () => {
+  const today = useTodayDate();
   const [selectedDate, setSelectedDate] = useState("2025-03-20");
 
   return (

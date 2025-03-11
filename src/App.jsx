@@ -15,17 +15,14 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {isMobile ? (
-          <>
-            <Route path="/" element={<MobileMainPage />} />
-            <Route path="/form" element={<MobileFormPage />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<DesktopMainPage />} />
-            <Route path="/form" element={<DesktopFormPage />} />
-          </>
-        )}
+        <Route
+          path="/"
+          element={ <DesktopMainPage />}
+        />
+        <Route
+          path="/form"
+          element={isMobile ? <MobileFormPage /> : <DesktopFormPage />}
+        />
       </Routes>
     </Router>
   );

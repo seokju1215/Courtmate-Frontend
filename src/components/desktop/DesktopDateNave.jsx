@@ -2,7 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { formatDateWithDay } from "../../utils/dateUtils";
 import { dates } from "../../utils/dates";
-import useTodayDate from "../../hooks/useTodayDate"; // ✅ 오늘 날짜 가져오는 훅 추가
+import useTodayDate from "../../hooks/useTodayDate"; 
+import useResponsive from "../../hooks/useResponsive"; // ✅ 반응형 체크 훅 사용
 
 const NavContainer = styled.div`
   display: flex;
@@ -18,10 +19,6 @@ const NavContainer = styled.div`
   border-bottom: 1px solid #ddd;
   min-height: 50px;
   margin: 0 auto 10px auto;
-  
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 const ArrowButton = styled.button`
@@ -30,6 +27,10 @@ const ArrowButton = styled.button`
   font-size: 20px;
   cursor: pointer;
   padding: 10px;
+
+  @media (max-width: 768px) { 
+    display: none; /* ✅ 모바일에서는 화살표 버튼 숨김 */
+  }
 `;
 
 const DateSlider = styled.div`
@@ -39,6 +40,13 @@ const DateSlider = styled.div`
   white-space: nowrap;
   padding: 0 10px;
   max-width: 90%;
+  -webkit-overflow-scrolling: touch; /* ✅ 모바일 터치 스크롤 부드럽게 */
+
+  &::-webkit-scrollbar {
+    display: none; /* ✅ 스크롤바 숨김 */
+  }
+
+  scrollbar-width: none; /* ✅ Firefox에서 스크롤바 숨김 */
 `;
 
 const DateButton = styled.button`
@@ -59,36 +67,36 @@ const DateButton = styled.button`
 
 const DesktopDateNav = ({ selectedDate, onSelectDate }) => {
   const sliderRef = useRef(null);
-  const today = useTodayDate(); // ✅ 오늘 날짜 가져오기
+  const today = useTodayDate(); 
+  const isMobile = useResponsive(); // ✅ 반응형 체크 (768px 이하인지 확인)
   const [filteredDates, setFilteredDates] = useState([]);
 
   useEffect(() => {
     if (today) {
-      // ✅ 오늘 날짜 이후만 필터링
       const validDates = dates.filter((date) => date >= today);
       setFilteredDates(validDates);
-      onSelectDate(today); // ✅ 처음 선택된 날짜를 오늘로 설정
+      onSelectDate(today);
     }
   }, [today, onSelectDate]);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft -= 125;
+      sliderRef.current.scrollLeft -= 135;
     }
   };
 
   const scrollRight = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft += 125;
+      sliderRef.current.scrollLeft += 135;
     }
   };
 
   return (
     <NavContainer>
-      <ArrowButton onClick={scrollLeft}>◀️</ArrowButton>
+      {!isMobile && <ArrowButton onClick={scrollLeft}>◀️</ArrowButton>}
       <DateSlider ref={sliderRef}>
         {filteredDates.map((date) => {
-          const [fullDate, day] = formatDateWithDay(date).split("\n"); // ✅ 날짜와 요일 분리
+          const [fullDate, day] = formatDateWithDay(date).split("\n"); 
           return (
             <DateButton
               key={date}
@@ -96,12 +104,12 @@ const DesktopDateNav = ({ selectedDate, onSelectDate }) => {
               onClick={() => onSelectDate(date)}
             >
               <span>{fullDate}</span>
-              <span style={{ fontSize: "15px", color: "#666" }}>{day}</span> {/* ✅ 요일 스타일 적용 */}
+              <span style={{ fontSize: "15px", color: "#666" }}>{day}</span> 
             </DateButton>
           );
         })}
       </DateSlider>
-      <ArrowButton onClick={scrollRight}>▶️</ArrowButton>
+      {!isMobile && <ArrowButton onClick={scrollRight}>▶</ArrowButton>}
     </NavContainer>
   );
 };
