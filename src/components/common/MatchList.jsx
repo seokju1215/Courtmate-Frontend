@@ -3,7 +3,7 @@ import styled from "styled-components";
 import sampleMatchData from "../../data/sampleMatchData";
 
 const ListContainer = styled.div`
-  padding: 20px;
+  padding :20px
 `;
 
 const MatchItem = styled.div`

@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import courtmateLogo from "../../assets/courtmate.png";
 
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 90px;
   background-color: white;
+  justify-content:center;
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -15,13 +17,13 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  height: 40px;
+  height: 60px;
 `;
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo src="/assets/react.svy" alt="로고" />
+      <Logo src={courtmateLogo} alt="로고" />
     </HeaderContainer>
   );
 };
