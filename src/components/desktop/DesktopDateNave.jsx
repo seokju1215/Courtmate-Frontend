@@ -10,7 +10,7 @@ const NavContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 90%;
+  max-width: 100%;
   padding: 20px 0;
   background-color: white;
   position: sticky;

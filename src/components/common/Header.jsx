@@ -13,14 +13,24 @@ const HeaderContainer = styled.header`
   z-index: 100;
 `;
 
+const HeaderTextContainer = styled.div`
+  margin-left: 10px;
+  font-size : 22px;
+  color : #F2821F;
+  font-weight: bold;
+
+`
+
+
 const Logo = styled.img`
-  height: 60px;
+  height: 40px;
 `;
 
 const Header = () => {
   return (
     <HeaderContainer>
       <Logo src={courtmateLogo} alt="로고" />
+      <HeaderTextContainer>CourtMate</HeaderTextContainer>
     </HeaderContainer>
   );
 };
