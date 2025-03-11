@@ -40,20 +40,20 @@ const DateSlider = styled.div`
   white-space: nowrap;
   padding: 0 10px;
   max-width: 90%;
-  -webkit-overflow-scrolling: touch; /* ✅ 모바일 터치 스크롤 부드럽게 */
+  -webkit-overflow-scrolling: touch; 
 
   &::-webkit-scrollbar {
-    display: none; /* ✅ 스크롤바 숨김 */
+    display: none; /* 
   }
 
-  scrollbar-width: none; /* ✅ Firefox에서 스크롤바 숨김 */
+  scrollbar-width: none; /* 
 `;
 
 const DateButton = styled.button`
   flex: 0 0 auto;
   padding: 10px 15px;
   font-size: 16px;
-  background: ${(props) => (props.selected ? "#007bff" : "transparent")};
+  background: ${(props) => (props.selected ? "#F2821F" : "transparent")};
   color: ${(props) => (props.selected ? "white" : "black")};
   border-radius: 8px;
   cursor: pointer;
@@ -63,6 +63,7 @@ const DateButton = styled.button`
   flex-direction: column;
   gap: 2px;
   align-items: center;
+  border : none;
 `;
 
 const DesktopDateNav = ({ selectedDate, onSelectDate }) => {

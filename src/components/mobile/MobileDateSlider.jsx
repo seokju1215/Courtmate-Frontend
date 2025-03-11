@@ -42,10 +42,7 @@ const DateButton = styled.button`
   align-items: center;
   transition: background 0.3s, color 0.3s;
 
-  &:hover {
-    background: #007bff;
-    color: white;
-  }
+
 
   span {
     font-size: 15px;
