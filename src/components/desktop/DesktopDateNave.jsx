@@ -17,7 +17,7 @@ const NavContainer = styled.div`
   top: 10px;
   z-index: 99;
   border-bottom: 1px solid #ddd;
-  min-height: 50px;
+  min-height: 40px;
   margin: 0 auto 10px auto;
 `;
 

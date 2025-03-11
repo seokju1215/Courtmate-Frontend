@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex; 
   flex-direction: column; 
-  padding-top : 90px;
 `;
 
 const Container = styled.div`
