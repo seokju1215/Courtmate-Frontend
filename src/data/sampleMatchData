@@ -1,0 +1,32 @@
+const sampleMatchData = [
+    {
+        id : 1,
+        courtId : 1,
+        matchDate : '2025-03-20',
+        matchStartTime : '14:00:00',
+        totalCapacity : 10,
+        registeredCount : 3,
+        remainingCount : 7
+    },
+    {
+        id : 2,
+        courtId : 1,
+        matchDate : '2025-03-20',
+        matchStartTime : '14:00:00',
+        totalCapacity : 10,
+        registeredCount : 3,
+        remainingCount : 7
+    },
+    {
+        id : 3,
+        courtId : 2,
+        matchDate : '2025-03-21',
+        matchStartTime : '14:00:00',
+        totalCapacity : 10,
+        registeredCount : 3,
+        remainingCount : 7
+    },
+  
+]
+
+export default sampleMatchData;
