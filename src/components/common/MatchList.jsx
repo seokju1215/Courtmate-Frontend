@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchMatches } from "../../api/fetchMatches.js";
 import { useNavigate } from "react-router-dom";
+import MatchFilter from "./MatchFilter.jsx";
 
 const Column = styled.div`
   display: flex;
@@ -145,7 +146,7 @@ const MatchList = ({ selectedDate }) => {
     loadMatches();
   }, []);
 
-  // ✅ 현재 날짜 및 시간 가져오기
+  
   const now = new Date();
   const nowHours = now.getHours();
   const nowMinutes = now.getMinutes();
@@ -213,7 +214,7 @@ const MatchList = ({ selectedDate }) => {
     navigate(`/form/${match.courtId}/${match.id}`, {
       state: { 
         courtName: match.courtName,
-        matchDate: match.displayDate, 
+        matchDate: match.displayDate,  
         matchTime: match.displayTime,
       },
     });

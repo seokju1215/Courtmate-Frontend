@@ -41,10 +41,9 @@ export const fetchMatches = async () => {
       };
     });
 
-    console.log("✅ Firestore에서 가져온 데이터:", matches);
     return matches; // ✅ 데이터를 반환
   } catch (error) {
-    console.error("🔥 Firestore 데이터 가져오기 오류:", error);
+    console.error("Firestore 데이터 가져오기 오류:", error);
     return [];
   }
 };

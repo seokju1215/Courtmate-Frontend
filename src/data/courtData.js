@@ -15,7 +15,7 @@ import court14 from "../assets/court14.png";
 
 const courtData = {
   1: {
-    name: "강남구-실내체육관 바스농구클럽 개포점",
+    name: "서울 강남구 - 실내체육관 바스농구클럽 개포점",
     address: "서울 강남구 논현로6길 17",
     image: court1, 
     notice: [
@@ -28,7 +28,7 @@ const courtData = {
     ],
   },
   2: {
-    name: "강서구 - 체육관A 퍼시픽스포츠그룹 강서점",
+    name: "서울 강서구 - 체육관A 퍼시픽스포츠그룹 강서점",
     address: "서울 강서구 공항대로41길 34 B3",
     image: court2,
     notice: [
@@ -37,7 +37,7 @@ const courtData = {
   ],
   },
   3: {
-    name: "광진구 - 유니온 스포츠센터 몬스터 스포츠",
+    name: "서울 광진구 - 유니온 스포츠센터 몬스터 스포츠",
     address: "서울 광진구 아차산로 459 지하1층",
     image: court3,
     notice: [
@@ -46,7 +46,7 @@ const courtData = {
   ],
   },
   4: {
-    name: "노원구 - 아시아퍼시픽국제학교 체육관",
+    name: "서울 노원구 - 아시아퍼시픽국제학교 체육관",
     address: "서울 노원구 월계로45가길 57 야외축구장 / 실내농구장",
     image: court4,
     notice: [
@@ -55,7 +55,7 @@ const courtData = {
   ],
   },
   5: {
-    name: "도봉구 - 실내체육관 엠제이짐 MJ GYM(현대레포츠)",
+    name: "서울 도봉구 - 실내체육관 엠제이짐 MJ GYM(현대레포츠)",
     address: "서울 도봉구 시루봉로 58 한양6차상가 B2",
     image: court5,
     notice:[
@@ -64,7 +64,7 @@ const courtData = {
   ],
   },
   6: {
-    name: "동대문구 - 실내체육관 토모짐 (TOMO GYM)",
+    name: "서울 동대문구 - 실내체육관 토모짐 (TOMO GYM)",
     address: "서울 동대문구 사가정로 148 SK스포츠상가 4층 토모짐",
     image: court6,
     notice: [
@@ -74,7 +74,7 @@ const courtData = {
     ],
   },
   7: {
-    name: "서대문구 - 실내체육관 경기대학교(서울)",
+    name: "서울 서대문구 - 실내체육관 경기대학교(서울)",
     address: "서울 서대문구 경기대로9길 24",
     image: court7,
     notice: [
@@ -84,7 +84,7 @@ const courtData = {
     ],
   },
   8: {
-    name: "서초구 - 미스터코치 농구클럽 미스터코치 농구클럽",
+    name: "서울 서초구 - 미스터코치 농구클럽 미스터코치 농구클럽",
     address: "서울 서초구 양재천로 141 미스터코치 농구클럽",
     image: court8,
     notice: [
@@ -93,7 +93,7 @@ const courtData = {
     ],
   },
   9: {
-    name: "성복구 - 실내체육관 (상상관) 한성대학교",
+    name: "서울 성복구 - 실내체육관 (상상관) 한성대학교",
     address: "서울 성북구 삼선교로16길 116",
     image: court9,
     notice: [
@@ -102,7 +102,7 @@ const courtData = {
     ],
   },
   10: {
-    name: "송파구 - 실내체육관 ATB 송파위례점",
+    name: "서울 송파구 - 실내체육관 ATB 송파위례점",
     address: "서울 송파구 위례순환로 486",
     image: court10,
     notice: [
@@ -111,7 +111,7 @@ const courtData = {
     ],
   },
   11: {
-    name: "양천구 - 삼성리틀썬더스 목동점 삼성리틀썬더스 목동점",
+    name: "서울 양천구 - 삼성리틀썬더스 목동점 삼성리틀썬더스 목동점",
     address: "서울 양천구 중앙로 312 B1",
     image: court11,
     notice: [
@@ -119,7 +119,7 @@ const courtData = {
     ],
   },
   12: {
-    name: "영등포구 - 실내체육관 빅토리스포츠아카데미",
+    name: "서울 영등포구 - 실내체육관 빅토리스포츠아카데미",
     address: "서울 영등포구 선유서로 19 1층",
     image: court12,
     notice: [
@@ -128,7 +128,7 @@ const courtData = {
     ],
   },
   13: {
-    name: "중구 - 유앤아이스포츠 서대문점",
+    name: "서울 중구 - 유앤아이스포츠 서대문점",
     address: "서울 중구 정동길 3 2층",
     image: court13,
     notice: [
@@ -136,7 +136,7 @@ const courtData = {
     ],
   },
   14: {
-    name: "중랑구 - 흥학관 | 실내체육관 서일대학교",
+    name: "서울 중랑구 - 흥학관 | 실내체육관 서일대학교",
     address: "서울 중랑구 용마산로90길 28",
     image: court14,
     notice: [

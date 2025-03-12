@@ -8,6 +8,7 @@ import FormInput from "../../components/form/FormInput";
 import FormRadioGroup from "../../components/form/FormRadioGroup";
 import FormButton from "../../components/form/FormButton";
 import styled from "styled-components";
+import MatchFilter from "../../components/common/MatchFilter";
 
 const FormContainer = styled.div`
 backgroud-color : #FFF2E7,
@@ -149,7 +150,7 @@ const FormPage = () => {
           selected={formData.gender}
           onChange={handleChange}
         />
-        <FormInput label="나이를 입력하세요" type="number" name="age" value={formData.age} onChange={handleChange} />
+        <FormInput label="나이를 입력하세요" type="text" name="age" value={formData.age} onChange={handleChange} />
         <FormInput label="전화번호를 입력하세요" type="tel" name="phone" value={formData.phone} onChange={handleChange} />
 
         {courtInfo ? (
