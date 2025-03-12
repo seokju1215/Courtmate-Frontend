@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { doc, getDoc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebase"; // ✅ Firestore 설정 가져오기
 import courtData from "../../data/courtData"; // ✅ 경기장 정보 가져오기
@@ -11,7 +11,7 @@ import styled from "styled-components";
 
 const FormContainer = styled.div`
 backgroud-color : #FFF2E7,
-padding: 20px;
+padding: 10px;
 display : flex;
 flex-direction: column;
 justify-content : center;
@@ -28,7 +28,7 @@ const Image = styled.img`
 
 const NoticeContainer = styled.div`
   text-align: left;
-  margin-top: 10px;
+  margin-top: 1px;
   font-size: 14px;
   color: #333;
   margin-bottom : 20px;
@@ -51,6 +51,8 @@ const FormPage = () => {
     phone: "",
   });
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const { courtName, matchDate, matchTime } = location.state || {}; // ✅ URL state에서 값 가져오기
 
   // ✅ courtId에 해당하는 경기장 정보 가져오기
   const courtInfo = courtData[courtId];
@@ -118,26 +120,28 @@ const FormPage = () => {
       <FormContainer>
         {courtInfo ? (
           <>
-            <h2 style={{marginTop : "40px"}}>{courtInfo.name}</h2>
+            <h2 style={{ marginTop: "40px" }}>{courtInfo.name}</h2>
             <p>주소 : {courtInfo.address}</p>
-            <Image src={courtInfo.image} alt={`${courtInfo.name} 이미지`} />
-            <NoticeContainer>
-              {courtInfo.notice.map((line, index) => (
-                <NoticeItem key={index} isHeader={index === 0}>
-                  {line}
-                </NoticeItem>
-              ))}
-            </NoticeContainer>
+            <Image src={courtInfo.image} alt={`${courtInfo.name} 이미지`}  style = {{marginBottom : "10px" }}/>
+            <p style={{ fontSize: "16px", fontWeight: "bold", marginTop: "0px", marginBottom : "-10px" }}>
+              {courtInfo.price || "5,000원"}
+              <span style={{ fontSize: "12px", color: "#888", marginLeft: "5px" }}>
+                / {courtInfo.duration || "1시간"}
+              </span>
+            </p>
+            <p style={{ fontSize: "12px", color: "#666" }}>
+              남자 5 VS 5
+            </p>
           </>
         ) : (
           <p>경기장 정보를 불러올 수 없습니다.</p>
         )}
-
         {/* 신청 폼 */}
+        <p>{matchDate} {matchTime}</p>
         <FormInput label="성함을 입력하세요" type="text" name="name" value={formData.name} onChange={handleChange} />
         <FormRadioGroup
           label="성별을 선택하세요"
-          name = "gender"
+          name="gender"
           options={[
             { value: "male", label: "남성" },
             { value: "female", label: "여성" },
@@ -147,6 +151,21 @@ const FormPage = () => {
         />
         <FormInput label="나이를 입력하세요" type="number" name="age" value={formData.age} onChange={handleChange} />
         <FormInput label="전화번호를 입력하세요" type="tel" name="phone" value={formData.phone} onChange={handleChange} />
+
+        {courtInfo ? (
+          <>
+            <p style={{ fontSize: "16px", fontWeight: "bold", marginBottom : "4px"}}>주의사항</p>
+            <NoticeContainer>
+              {courtInfo.notice.map((line, index) => (
+                <NoticeItem key={index} isHeader={index === 0}>
+                  {line}
+                </NoticeItem>
+              ))}
+            </NoticeContainer>
+          </>
+        ) : (
+          <p >경기장 정보를 불러올 수 없습니다.</p>
+        )}
         <FormButton text={loading ? "신청 중..." : "신청 완료"} onClick={handleSubmit} disabled={loading} />
       </FormContainer>
     </DesktopLayout>

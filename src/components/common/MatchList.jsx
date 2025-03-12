@@ -211,7 +211,11 @@ const MatchList = ({ selectedDate }) => {
 
   const handleApply = (match) => {
     navigate(`/form/${match.courtId}/${match.id}`, {
-      state: { courtName: match.courtName },
+      state: { 
+        courtName: match.courtName,
+        matchDate: match.displayDate, 
+        matchTime: match.displayTime,
+      },
     });
   };
 

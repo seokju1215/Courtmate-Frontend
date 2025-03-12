@@ -1,10 +1,23 @@
-
+import court1 from "../assets/court1.png";
+import court2 from "../assets/court2.png";
+import court3 from "../assets/court3.png";
+import court4 from "../assets/court4.png";
+import court5 from "../assets/court5.png";
+import court6 from "../assets/court6.png";
+import court7 from "../assets/court7.png";
+import court8 from "../assets/court8.png";
+import court9 from "../assets/court9.png";
+import court10 from "../assets/court10.png";
+import court11 from "../assets/court11.png";
+import court12 from "../assets/court12.png";
+import court13 from "../assets/court13.png";
+import court14 from "../assets/court14.png";
 
 const courtData = {
   1: {
     name: "강남구-실내체육관 바스농구클럽 개포점",
     address: "서울 강남구 논현로6길 17",
-    image: "", 
+    image: court1, 
     notice: [
       "★시설 및 기자재: 실내 화장실, 실내 샤워실, 탈의실",
       "1. 샤워실 사용 가능. 하지만 대관 시간 내에 사용해주세요!!! 대관 시간 이외에는 사용 불가하십니다.",
@@ -17,7 +30,7 @@ const courtData = {
   2: {
     name: "강서구 - 체육관A 퍼시픽스포츠그룹 강서점",
     address: "서울 강서구 공항대로41길 34 B3",
-    image: "",
+    image: court2,
     notice: [
       "★주차: 무제한(선착순, 기계식 주차+지상주차, 휴일 공용주차장 무료)",
       "★시설 및 기자재: 농구공(20개), 고깔, 냉난방(6대), 공기청정기(6대), 정수기, 자판기, 내부 샤워실, 내부 화장실, 탈의실, 대기실"
@@ -26,7 +39,7 @@ const courtData = {
   3: {
     name: "광진구 - 유니온 스포츠센터 몬스터 스포츠",
     address: "서울 광진구 아차산로 459 지하1층",
-    image: "",
+    image: court3,
     notice: [
       "★시설 및 기자재: 대기실,, 실내 화장실, 영상,음향장비,각종스포츠용품",
       "★주차: 건물 외 주차 1시간 무료(최대 2대까지 가능, 차종 별 제한, 문의)"
@@ -35,7 +48,7 @@ const courtData = {
   4: {
     name: "노원구 - 아시아퍼시픽국제학교 체육관",
     address: "서울 노원구 월계로45가길 57 야외축구장 / 실내농구장",
-    image: "",
+    image: court4,
     notice: [
       "무료 주차 가능하나, 주차 대수 제한이 있으니 미리 가능 여부를 필히 확인하시기 바랍니다.",
       "학교시설 내 금연 절대불가입니다."
@@ -44,7 +57,7 @@ const courtData = {
   5: {
     name: "도봉구 - 실내체육관 엠제이짐 MJ GYM(현대레포츠)",
     address: "서울 도봉구 시루봉로 58 한양6차상가 B2",
-    image: "",
+    image: court5,
     notice:[
       "●주차 : 상가 주차장 이용 (방문증 작성시 10대이상 가능)",
       "●시설 및 기자재 : 남녀 화장실및 샤워실, 탈의실, 정수기,냉난방 가"
@@ -53,7 +66,7 @@ const courtData = {
   6: {
     name: "동대문구 - 실내체육관 토모짐 (TOMO GYM)",
     address: "서울 동대문구 사가정로 148 SK스포츠상가 4층 토모짐",
-    image: "",
+    image: court6,
     notice: [
       "★주차: 아파트 상가 주변 무료주차가능(아파트내에는 주차X)",
       "★시설 및 기자재: 4층: 배구/농구장, 5층 : 2층 관람석, 휴게공간",
@@ -63,7 +76,7 @@ const courtData = {
   7: {
     name: "서대문구 - 실내체육관 경기대학교(서울)",
     address: "서울 서대문구 경기대로9길 24",
-    image: "",
+    image: court7,
     notice: [
       "★기타 사항",
       "1. 샤워실 사용 불가",
@@ -73,7 +86,7 @@ const courtData = {
   8: {
     name: "서초구 - 미스터코치 농구클럽 미스터코치 농구클럽",
     address: "서울 서초구 양재천로 141 미스터코치 농구클럽",
-    image: "",
+    image: court8,
     notice: [
       "내부 대기실과 화장실, 정수기, 무료 주차 6대, 전자점수판",
       "(도보로 3분 거리에 공영주차장 있음, 10분에 300원)"
@@ -82,7 +95,7 @@ const courtData = {
   9: {
     name: "성복구 - 실내체육관 (상상관) 한성대학교",
     address: "서울 성북구 삼선교로16길 116",
-    image: "",
+    image: court9,
     notice: [
       "1. 샤워실 사용 불가",
       "2. 음료 이외의 음식물 취식 금지 (지침 및 안내 위반 시 퇴장 조치)"
@@ -91,7 +104,7 @@ const courtData = {
   10: {
     name: "송파구 - 실내체육관 ATB 송파위례점",
     address: "서울 송파구 위례순환로 486",
-    image: "",
+    image: court10,
     notice: [
       "★시설 및 기자재: 실내 화장실, 실내 샤워실, 2층 관람석, 카페, 방송장비, 방송실",
       "★샤워시설&냉난방 무료이용 가능"
@@ -100,7 +113,7 @@ const courtData = {
   11: {
     name: "양천구 - 삼성리틀썬더스 목동점 삼성리틀썬더스 목동점",
     address: "서울 양천구 중앙로 312 B1",
-    image: "",
+    image: court11,
     notice: [
       "무료 주차 가능하나, 주차 대수 제한이 있으니 미리 가능 여부를 필히 확인하시기 바랍니다."
     ],
@@ -108,7 +121,7 @@ const courtData = {
   12: {
     name: "영등포구 - 실내체육관 빅토리스포츠아카데미",
     address: "서울 영등포구 선유서로 19 1층",
-    image: "",
+    image: court12,
     notice: [
       "- 지상주차장 5~6대 가능",
       "- 매점 음료 및 생수 판매 중"
@@ -117,7 +130,7 @@ const courtData = {
   13: {
     name: "중구 - 유앤아이스포츠 서대문점",
     address: "서울 중구 정동길 3 2층",
-    image: "",
+    image: court13,
     notice: [
       "★주차: 유료 주차장 이용(건물 내)"
     ],
@@ -125,7 +138,7 @@ const courtData = {
   14: {
     name: "중랑구 - 흥학관 | 실내체육관 서일대학교",
     address: "서울 중랑구 용마산로90길 28",
-    image: "",
+    image: court14,
     notice: [
       "정문에서 바리게이트 통과 후 우회전하면 흥학관 건물 주차장이 바로 보이고, 주차장 주차 후 바로 체육관으로 이어지는 문을 통해 체육관 로비로 입장 가능 (주차비 무료)",
       "음료 이외의 음식물 취식 금지 (지침 및 안내 위반 시 퇴장 조치)"
