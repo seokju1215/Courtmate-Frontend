@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchMatches } from "../../api/fetchMatches.js"; // ✅ Firestore에서 실시간 데이터 가져오기
+import { fetchMatches } from "../../api/fetchMatches.js"; 
+import { useNavigate } from "react-router-dom";
 
 // 🔥 `Column`을 `styled.div`로 정의 (가장 위에서 선언)
 const Column = styled.div`
@@ -133,19 +134,19 @@ const ApplyButton = styled.button`
 const MatchList = ({ selectedDate }) => {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   
   useEffect(() => {
-    console.log("🔥 selectedDate 값:", selectedDate);
-
     const loadMatches = async () => {
       const fetchedMatches = await fetchMatches();
       setMatches(fetchedMatches);
       setLoading(false);
     };
-    loadMatches(); // 함수 실행
+    loadMatches(); 
 
   }, [])
+
   const formattedSelectedDate = (() => {
     if (!selectedDate) return "날짜 없음";
     const dateObj = selectedDate instanceof Date ? selectedDate : new Date(selectedDate);
@@ -155,6 +156,12 @@ const MatchList = ({ selectedDate }) => {
   const filteredMatches = matches.filter(
     (match) => match.matchDate === formattedSelectedDate
   );
+
+  const handleApply = (match) => {
+    navigate(`/form/${match.courtId}/${match.id}`, {
+      state: { courtName: match.courtName },
+    });
+  };
 
   if (loading) {
     return <ListContainer>📡 데이터를 불러오는 중...</ListContainer>;
@@ -178,7 +185,10 @@ const MatchList = ({ selectedDate }) => {
               </InfoColumn>
 
               <ActionColumn>
-                <ApplyButton disabled={isClosed}>
+                <ApplyButton 
+                disabled={isClosed}
+                onClick={() => handleApply(match)}
+                >
                   {isClosed ? "마감" : "참가하기"}
                 </ApplyButton>
                 {match.remainingCount > 0 ? (

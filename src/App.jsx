@@ -4,13 +4,10 @@ import useResponsive from "./hooks/useResponsive.js";
 
 
 import DesktopMainPage from "./pages/desktop/MainPage.jsx";
-import DesktopFormPage from "./pages/desktop/FormPage.jsx";
-import MobileMainPage from "./pages/mobile/Mainpage.jsx";
-import MobileFormPage from "./pages/mobile/Formpage.jsx";
+import FormPage from "./pages/desktop/FormPage.jsx";
 
 
 const App = () => {
-  const isMobile = useResponsive();
 
   return (
     <Router>
@@ -20,8 +17,8 @@ const App = () => {
           element={ <DesktopMainPage />}
         />
         <Route
-          path="/form"
-          element={isMobile ? <MobileFormPage /> : <DesktopFormPage />}
+          path="/form/:courtId/:matchId"
+          element={ <FormPage />}
         />
       </Routes>
     </Router>
