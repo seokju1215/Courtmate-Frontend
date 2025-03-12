@@ -14,10 +14,13 @@ backgroud-color : #FFF2E7,
 padding: 20px;
 display : flex;
 flex-direction: column;
+justify-content : center;
+max-width: 500px; /* 폼의 최대 너비 설정 */
+margin: 0 auto; 
 `
 
 const Image = styled.img`
-  width: 300px;
+  width: 90%;
   height: auto;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -25,16 +28,17 @@ const Image = styled.img`
 
 const NoticeContainer = styled.div`
   text-align: left;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 14px;
   color: #333;
+  margin-bottom : 20px;
 `;
 
 const NoticeItem = styled.p`
   margin: 5px 0;
   font-size: 13px;
-  color: ${(props) => (props.isHeader ? "black" : "#666")};
-  font-weight: ${(props) => (props.isHeader ? "bold" : "normal")};
+  color: black;
+  font-weight:  normal;
 `;
 
 const FormPage = () => {
@@ -95,14 +99,13 @@ const FormPage = () => {
         createdAt: new Date(),
       });
 
-      // ✅ matches 문서 업데이트 (신청 인원 증가)
       await updateDoc(matchRef, {
         registeredCount: registeredCount + 1,
         remainingCount: remainingCount - 1,
       });
 
       alert("신청이 완료되었습니다.");
-      navigate("/"); // ✅ 신청 후 메인 페이지로 이동
+      navigate("/");
     } catch (error) {
       console.error("신청 저장 실패:", error);
       alert("신청 저장에 실패했습니다.");
@@ -115,8 +118,8 @@ const FormPage = () => {
       <FormContainer>
         {courtInfo ? (
           <>
-            <h2>{courtInfo.name}</h2>
-            <p>{courtInfo.address}</p>
+            <h2 style={{marginTop : "40px"}}>{courtInfo.name}</h2>
+            <p>주소 : {courtInfo.address}</p>
             <Image src={courtInfo.image} alt={`${courtInfo.name} 이미지`} />
             <NoticeContainer>
               {courtInfo.notice.map((line, index) => (

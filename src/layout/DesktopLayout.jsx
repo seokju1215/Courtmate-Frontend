@@ -17,6 +17,7 @@ const Container = styled.div`
   background: white;
   margin: 0 auto
   flex-grow: 1; 
+
 `;
 
 const DesktopLayout = ({ children }) => {
