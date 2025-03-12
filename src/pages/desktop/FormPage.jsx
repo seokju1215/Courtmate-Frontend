@@ -134,6 +134,7 @@ const FormPage = () => {
         <FormInput label="성함을 입력하세요" type="text" name="name" value={formData.name} onChange={handleChange} />
         <FormRadioGroup
           label="성별을 선택하세요"
+          name = "gender"
           options={[
             { value: "male", label: "남성" },
             { value: "female", label: "여성" },

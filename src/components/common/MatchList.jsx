@@ -164,7 +164,7 @@ const MatchList = ({ selectedDate }) => {
   };
 
   if (loading) {
-    return <ListContainer>📡 데이터를 불러오는 중...</ListContainer>;
+    return <ListContainer> 데이터를 불러오는 중...</ListContainer>;
   }
 
   return (

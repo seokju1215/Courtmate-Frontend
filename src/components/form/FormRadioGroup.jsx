@@ -21,7 +21,7 @@ const RadioInput = styled.input`
   margin-right: 10px;
 `;
 
-const FormRadioGroup = ({ label, options, selected, onChange }) => {
+const FormRadioGroup = ({ label, options, selected,name, onChange }) => {
   return (
     <Wrapper>
       <Label>{label}</Label>
@@ -30,9 +30,10 @@ const FormRadioGroup = ({ label, options, selected, onChange }) => {
           <label key={option.value} style={{display : "flex" ,flex : "1"}}>
             <RadioInput
               type="radio"
+              name = {name}
               value={option.value}
               checked={selected === option.value}
-              onChange={onChange}
+              onChange={(e) => onChange(e)}
             />
             {option.label}
           </label>
