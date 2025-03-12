@@ -94,7 +94,7 @@ const DesktopDateNav = ({ selectedDate, onSelectDate }) => {
 
   return (
     <NavContainer>
-      {!isMobile && <ArrowButton onClick={scrollLeft}>◀️</ArrowButton>}
+      {!isMobile && <ArrowButton style={{ fontFamily: "Arial, sans-serif", fontSize: "20px" }} onClick={scrollLeft}>˂</ArrowButton>}
       <DateSlider ref={sliderRef}>
         {filteredDates.map((date) => {
           const [fullDate, day] = formatDateWithDay(date).split("\n"); 
@@ -110,7 +110,7 @@ const DesktopDateNav = ({ selectedDate, onSelectDate }) => {
           );
         })}
       </DateSlider>
-      {!isMobile && <ArrowButton onClick={scrollRight}>▶</ArrowButton>}
+      {!isMobile && <ArrowButton style={{ fontFamily: "Arial, sans-serif", fontSize: "20px" }} onClick={scrollRight}>˃</ArrowButton>}
     </NavContainer>
   );
 };
