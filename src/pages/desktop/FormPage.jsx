@@ -8,7 +8,6 @@ import FormInput from "../../components/form/FormInput";
 import FormRadioGroup from "../../components/form/FormRadioGroup";
 import FormButton from "../../components/form/FormButton";
 import styled from "styled-components";
-import MatchFilter from "../../components/common/MatchFilter";
 
 const FormContainer = styled.div`
 backgroud-color : #FFF2E7,
@@ -19,6 +18,22 @@ justify-content : center;
 max-width: 500px; /* 폼의 최대 너비 설정 */
 margin: 0 auto; 
 `
+
+const RemainingSeats = styled.div`
+  font-size: 12px;
+  color: ${(props) => (props.isClosed ? "#888" : "red")};
+  text-align: center;
+  margin-left : 58%;
+  margin-top : -1px;
+
+  @media (min-width: 768px) {
+    font-size: 13px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 15px;
+  }
+`;
 
 const Image = styled.img`
   width: 90%;
@@ -42,8 +57,9 @@ const NoticeItem = styled.p`
   font-weight:  normal;
 `;
 
+
 const FormPage = () => {
-  const { courtId, matchId } = useParams(); // ✅ URL에서 courtId, matchId 가져오기
+  const { courtId, matchId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -53,12 +69,24 @@ const FormPage = () => {
   });
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const { courtName, matchDate, matchTime } = location.state || {}; // ✅ URL state에서 값 가져오기
+  const { courtName, matchDate, matchTime } = location.state || {};
+  const [remainingSeats, setRemainingSeats] = useState(null);
 
-  // ✅ courtId에 해당하는 경기장 정보 가져오기
   const courtInfo = courtData[courtId];
+  useEffect(() => {
+    const fetchMatchDetails = async () => {
+      if (!matchId) return;
+      const matchRef = doc(db, "matches", matchId);
+      const matchSnap = await getDoc(matchRef);
 
-  // ✅ 입력 값 변경 핸들러
+      if (matchSnap.exists()) {
+        setRemainingSeats(matchSnap.data().remainingCount); // ✅ Firestore에서 남은 자리 가져오기
+      }
+    };
+
+    fetchMatchDetails();
+  }, [matchId]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -67,7 +95,6 @@ const FormPage = () => {
     }));
   };
 
-  // ✅ Firestore에 사용자 신청 정보 저장 및 `matches` 문서 업데이트
   const handleSubmit = async () => {
     if (!courtId || !matchId) {
       alert("올바른 경기 정보가 없습니다.");
@@ -123,13 +150,21 @@ const FormPage = () => {
           <>
             <h2 style={{ marginTop: "40px" }}>{courtInfo.name}</h2>
             <p>주소 : {courtInfo.address}</p>
-            <Image src={courtInfo.image} alt={`${courtInfo.name} 이미지`}  style = {{marginBottom : "10px" }}/>
-            <p style={{ fontSize: "16px", fontWeight: "bold", marginTop: "0px", marginBottom : "-10px" }}>
-              {courtInfo.price || "5,000원"}
-              <span style={{ fontSize: "12px", color: "#888", marginLeft: "5px" }}>
-                / {courtInfo.duration || "1시간"}
-              </span>
-            </p>
+            <Image src={courtInfo.image} alt={`${courtInfo.name} 이미지`} style={{ marginBottom: "10px"}} />
+            <div style={{width : "100%"}}>
+              <p style={{ fontSize: "16px", fontWeight: "bold", marginTop: "0px", marginBottom: "-10px", display: "flex", flexDirection: "row" }}>
+                {courtInfo.price || "5,000원"}
+                <span style={{ fontSize: "12px", color: "#888", marginTop : "2px",marginLeft: "5px", display: "flex", flexDirection: "row", width : "80%" }}>
+                  / {courtInfo.duration || "1시간"}
+                  {remainingSeats !== null && (
+                    <RemainingSeats remainingCount={remainingSeats} >
+                      {remainingSeats > 0 ? `남은 자리: ${remainingSeats}자리` : "신청이 마감되었습니다."}
+                    </RemainingSeats>
+                  )}
+                </span>
+
+              </p>
+            </div>
             <p style={{ fontSize: "12px", color: "#666" }}>
               남자 5 VS 5
             </p>
@@ -155,7 +190,7 @@ const FormPage = () => {
 
         {courtInfo ? (
           <>
-            <p style={{ fontSize: "16px", fontWeight: "bold", marginBottom : "4px"}}>주의사항</p>
+            <p style={{ fontSize: "16px", fontWeight: "bold", marginBottom: "4px" }}>주의사항</p>
             <NoticeContainer>
               {courtInfo.notice.map((line, index) => (
                 <NoticeItem key={index} isHeader={index === 0}>

@@ -14,7 +14,7 @@ const NavContainer = styled.div`
   padding: 20px 0;
   background-color: white;
   position: sticky;
-  top: 10px;
+  top: 0px;
   z-index: 99;
   border-bottom: 1px solid #ddd;
   min-height: 40px;

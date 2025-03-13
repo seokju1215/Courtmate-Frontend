@@ -90,21 +90,6 @@ const ActionColumn = styled(Column)`
   text-align: center;
 `;
 
-const RemainingSeats = styled.div`
-  font-size: 10px;
-  color: ${(props) => (props.isClosed ? "#888" : "red")};
-  margin-top: 5px;
-  text-align: center;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    font-size: 13px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 15px;
-  }
-`;
 
 const ApplyButton = styled.button`
   background-color: ${(props) => (props.disabled ? "#ddd" : "#F2821F")};
@@ -226,6 +211,7 @@ const MatchList = ({ selectedDate }) => {
 
   return (
     <ListContainer>
+
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match) => {
           const isClosed = match.remainingCount === 0;
@@ -248,11 +234,6 @@ const MatchList = ({ selectedDate }) => {
                 >
                   {isClosed ? "마감" : "참가하기"}
                 </ApplyButton>
-                {match.remainingCount > 0 ? (
-                  <RemainingSeats>{match.remainingCount}자리 남았어요</RemainingSeats>
-                ) : (
-                  <RemainingSeats isClosed={isClosed}>마감되었습니다</RemainingSeats>
-                )}
               </ActionColumn>
             </MatchItem>
           );
