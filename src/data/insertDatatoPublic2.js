@@ -20,8 +20,8 @@ const existingMatches = loadExistingData(MATCHES_FILE);
 const existingMatchIds = loadExistingData(MATCH_IDS_FILE);
 
 // 매치 설정
-const START_DATE = new Date('2025-03-17'); // 시작 날짜
-const END_DATE = new Date('2025-03-17'); // 종료 날짜
+const START_DATE = new Date('2025-03-31'); // 시작 날짜
+const END_DATE = new Date('2025-03-31'); // 종료 날짜
 
 // 랜덤 문자열 생성 함수 (6자리)
 const generateShortId = () => crypto.randomBytes(3).toString('hex'); // 6글자 랜덤 ID

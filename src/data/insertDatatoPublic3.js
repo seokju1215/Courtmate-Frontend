@@ -21,8 +21,8 @@ const existingMatchIds = loadExistingData(MATCH_IDS_FILE);
 
 // 매치 설정
 const START_DATE = new Date('2025-03-14'); // 시작 날짜
-const END_DATE = new Date('2025-03-23'); // 종료 날짜
-const weekendDays = [16, 23]; // 주말 날짜 리스트 (3월)
+const END_DATE = new Date('2025-03-31'); // 종료 날짜
+const weekendDays = [16, 23, 30]; // 주말 날짜 리스트 (3월)
 
 // 랜덤 문자열 생성 함수 (6자리)
 const generateShortId = () => crypto.randomBytes(3).toString('hex'); // 6글자 랜덤 ID
