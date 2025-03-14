@@ -96,7 +96,7 @@ const ApplyButton = styled.button`
   padding: 6px 12px;
   border: none;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: bold;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   min-width: 70px;
