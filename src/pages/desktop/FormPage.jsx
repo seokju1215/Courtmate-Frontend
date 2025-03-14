@@ -20,12 +20,14 @@ const FormContainer = styled.div`
   margin: 0 auto;
 `;
 
-const RemainingSeats = styled.div`
+const RemainingSeats = styled.div.attrs((props) => ({
+  className: "remaining-seats", // 필요한 경우 추가 가능
+}))`
   font-size: 12px;
-  color: ${(props) => (props.remainingSpots > 0 ? "red" : "#888")};
+  color: ${(props) => ("red")}; 
   text-align: center;
   margin-left: auto;
-  margin-right : 3%;
+  margin-right: 3%;
   margin-top: -1px;
 
   @media (min-width: 768px) {
