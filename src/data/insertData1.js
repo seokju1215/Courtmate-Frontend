@@ -4,7 +4,7 @@ import courtData from "./courtData.js"; // ✅ 경기장 정보 가져오기
 
 // 🔥 Firebase 설정 (firebase.js 파일과 동일해야 함)
 const firebaseConfig = {
-    apiKey: "AIzaSyD1uwkeamELWkD-R4_Z61ONx-wtK-1tgx0",
+    apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     authDomain: "courtmate6.firebaseapp.com",
     projectId: "courtmate6",
     storageBucket: "courtmate6.firebasestorage.app",
