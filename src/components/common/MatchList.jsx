@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchMatches } from "../../api/fetchMatches.js";
+import { fetchMatchesPublic } from "../../api/fetchMatchesPublic"; // ✅ JSON에서 불러오기
 import { useNavigate } from "react-router-dom";
 import MatchFilter from "./MatchFilter.jsx";
 
@@ -90,7 +90,6 @@ const ActionColumn = styled(Column)`
   text-align: center;
 `;
 
-
 const ApplyButton = styled.button`
   background-color: ${(props) => (props.disabled ? "#ddd" : "#F2821F")};
   color: ${(props) => (props.disabled ? "#888" : "white")};
@@ -116,7 +115,6 @@ const ApplyButton = styled.button`
   }
 `;
 
-
 const MatchList = ({ selectedDate }) => {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -124,14 +122,13 @@ const MatchList = ({ selectedDate }) => {
 
   useEffect(() => {
     const loadMatches = async () => {
-      const fetchedMatches = await fetchMatches();
+      const fetchedMatches = await fetchMatchesPublic(); // ✅ JSON에서 데이터 가져오기
       setMatches(fetchedMatches);
       setLoading(false);
     };
     loadMatches();
   }, []);
 
-  
   const now = new Date();
   const nowHours = now.getHours();
   const nowMinutes = now.getMinutes();
@@ -196,7 +193,7 @@ const MatchList = ({ selectedDate }) => {
     });
 
   const handleApply = (match) => {
-    navigate(`/form/${match.courtId}/${match.id}`, {
+    navigate(`/form/${match.courtId}/${match.matchId}`, {
       state: { 
         courtName: match.courtName,
         matchDate: match.displayDate,  
@@ -211,13 +208,12 @@ const MatchList = ({ selectedDate }) => {
 
   return (
     <ListContainer>
-
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match) => {
           const isClosed = match.remainingCount === 0;
 
           return (
-            <MatchItem key={match.id} isClosed={isClosed}>
+            <MatchItem key={match.matchId} isClosed={isClosed}>
               <TimeColumn isClosed={isClosed}>
                 <strong>{match.displayTime}</strong>
               </TimeColumn>

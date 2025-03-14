@@ -4,13 +4,13 @@ import courtData from "./courtData.js"; // ✅ 경기장 정보 가져오기
 
 // 🔥 Firebase 설정 (firebase.js 파일과 동일해야 함)
 const firebaseConfig = {
-    apiKey: "AIzaSyB3v-D-OoLrUBVyh_JoEC1LZ7jOmSyWtoQ",
-  authDomain: "courtmate-d4091.firebaseapp.com",
-  projectId: "courtmate-d4091",
-  storageBucket: "courtmate-d4091.firebasestorage.app",
-  messagingSenderId: "484550600532",
-  appId: "1:484550600532:web:65017db4bf16cd27d30ac1",
-  measurementId: "G-73WRZGKRKZ"
+    apiKey: "AIzaSyD1uwkeamELWkD-R4_Z61ONx-wtK-1tgx0",
+    authDomain: "courtmate6.firebaseapp.com",
+    projectId: "courtmate6",
+    storageBucket: "courtmate6.firebasestorage.app",
+    messagingSenderId: "702098541016",
+    appId: "1:702098541016:web:fe3584ec468aa44634caad",
+    measurementId: "G-K7Y3JSMJ4Y"
 };
 
 const app = initializeApp(firebaseConfig);

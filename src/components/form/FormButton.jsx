@@ -5,12 +5,12 @@ const Button = styled.button`
   max-width : 500px;
   width: 100%;
   padding: 12px;
-  background-color: #f2821f;
-  color: white;
+  background-color: ${(props) => (props.disabled ? "#ddd" : "#f2821f")};
+  color: ${(props) => (props.disabled ? "#888" : "white")};
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   font-weight: bold;
 `;
 

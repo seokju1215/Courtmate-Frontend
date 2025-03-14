@@ -25,12 +25,12 @@ const generateMatchDataFor16and23 = async () => {
     let batchCount = 0;
 
     // ✅ 16일, 23일만 추가
-    const targetDates = ["2025-03-18", "2025-03-25"];
+    const targetDates = ["2025-03-17", "2025-03-24"];
 
     for (const targetDate of targetDates) {
         const kstDate = new Date(`${targetDate}T00:00:00+09:00`); // 한국 시간으로 변환
         let startHour = 6; // ✅ 06시부터 시작
-        let endHour = 8; // ✅ 15시까지 추가
+        let endHour = 15; // ✅ 15시까지 추가
 
         for (const courtId in courtData) {
             const court = courtData[courtId];
