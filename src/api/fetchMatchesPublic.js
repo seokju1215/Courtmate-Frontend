@@ -1,6 +1,5 @@
 export const fetchMatchesPublic = async () => {
     try {
-      console.log("🔥 matches.json에서 데이터 가져오기...");
       
       const response = await fetch("/matches.json");
       if (!response.ok) {
@@ -36,8 +35,7 @@ export const fetchMatchesPublic = async () => {
           matchStartTime,
         };
       });
-  
-      console.log(`📌 변환된 경기 개수: ${processedMatches.length}`);
+
       
       return processedMatches;
     } catch (error) {

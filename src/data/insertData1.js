@@ -9,7 +9,7 @@ const firebaseConfig = {
     projectId: "courtmate6",
     storageBucket: "courtmate6.firebasestorage.app",
     messagingSenderId: "702098541016",
-    appId: "1:702098541016:web:fe3584ec468aa44634caad",
+    appId: "1:70298541016:web:fe3584ec468aa44634caad",
     measurementId: "G-K7Y3JSMJ4Y"
 };
 
