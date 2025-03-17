@@ -110,10 +110,13 @@ const FormPage = () => {
       alert("이 경기의 신청이 마감되었습니다.");
       return;
     }
+    if (!formData.name || !formData.gender || !formData.age || !formData.phone) {
+      alert("정보를 모두 기입해주세요.");
+      return;
+    }
   
     setLoading(true);
     try {
-      // ✅ Firestore에 신청 정보 저장
       await addDoc(collection(db, "match_registrations"), {
         matchId,
         courtId,
@@ -121,7 +124,6 @@ const FormPage = () => {
         createdAt: new Date(),
       });
   
-      // ✅ remainingSpots 감소 (실시간 업데이트 되므로 setRemainingSpots 필요 없음)
       await decreaseRemainingSpots(matchId);
   
       alert("신청이 완료되었습니다.");
