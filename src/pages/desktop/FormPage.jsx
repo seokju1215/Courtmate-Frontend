@@ -99,8 +99,12 @@ const FormPage = () => {
       [name]: value,
     }));
   };
+  let isSubmitting = false;
 
   const handleSubmit = async () => {
+    if (loading || isSubmitting) return; 
+    isSubmitting = true;
+
     if (!courtId || !matchId) {
       alert("올바른 경기 정보가 없습니다.");
       return;
@@ -131,8 +135,10 @@ const FormPage = () => {
     } catch (error) {
       console.error("신청 저장 실패:", error);
       alert("신청 저장에 실패했습니다.");
+    } finally{
+      isSubmitting = false;
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
