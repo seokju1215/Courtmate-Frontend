@@ -180,7 +180,7 @@ const FormPage = () => {
           selected={formData.gender}
           onChange={handleChange}
         />
-        <FormInput label="나이를 입력하세요" type="text" name="age" value={formData.age} onChange={handleChange} />
+        <FormInput label="나이를 입력하세요" type="tel" name="age" value={formData.age} onChange={handleChange} />
         <FormInput label="전화번호를 입력하세요" type="tel" name="phone" value={formData.phone} onChange={handleChange} />
 
         {courtInfo ? (
